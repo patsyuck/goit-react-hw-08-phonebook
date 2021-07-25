@@ -1,0 +1,24 @@
+.form,
+.form label {
+  display: flex;
+  flex-direction: column;
+}
+
+.form {
+  max-width: 10cm;
+  padding-left: 2mm;
+}
+
+.form input {
+  width: 4cm;
+  margin-top: 1mm;
+}
+
+.form button {
+  width: 2.5cm;
+  background-color: white;
+}
+
+.form label {
+  margin-bottom: 0.5cm;
+}

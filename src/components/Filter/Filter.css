@@ -1,0 +1,10 @@
+.filter label {
+  padding-left: 2mm;
+  display: flex;
+  flex-direction: column;
+}
+
+.filter input {
+  margin-top: 1mm;
+  width: 4cm;
+}
