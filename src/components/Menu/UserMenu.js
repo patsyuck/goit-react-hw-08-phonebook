@@ -1,5 +1,8 @@
 import React from 'react'
+import { connect } from 'react-redux'
+import {getName} from '../../redux/authorization/authorizationSelectors'
 import './Menu.css'
+import image from './mine.jpg'
 
 const UserMenu = ({ avatar, name, onLogout }) => {
     return (
@@ -13,4 +16,11 @@ const UserMenu = ({ avatar, name, onLogout }) => {
     )
 }
 
-export default UserMenu
+const mapStateToProps = state => {
+  return {
+    name: getName(state),
+    avatar: image
+  };
+};
+
+export default connect(mapStateToProps, null)(UserMenu)
