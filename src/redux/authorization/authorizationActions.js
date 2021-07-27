@@ -3,7 +3,14 @@ import axios from 'axios';
 
 /*axios.defaults.baseUrl = 'https://connections-api.herokuapp.com'*/
 
-/*const token = {}*/
+const token = {
+    set(token) {
+        axios.defaults.headers.common.Authorization = `Bearer ${token}`
+    },
+    unset() {
+        axios.defaults.headers.common.Authorization = ''
+    }
+}
 
 export const userRegister = createAction('USER_REGISTER')
 export const userLogin = createAction('USER_LOGIN')
@@ -18,7 +25,7 @@ export const postRegistration = credentials => dispatch => {
     axios.post('https://connections-api.herokuapp.com/users/signup', credentials)
         .then((res) => {
             dispatch(authSuccess())
-            /*console.log(res.data)*/
+            token.set(res.data.token)
             dispatch(userRegister(res.data))
         })
         .catch((error) => {
@@ -31,6 +38,7 @@ export const postLogin = credentials => dispatch => {
     axios.post('https://connections-api.herokuapp.com/users/login', credentials)
         .then((res) => {
             dispatch(authSuccess())
+            token.set(res.data.token)
             dispatch(userLogin(res.data))
         })
         .catch((error) => {
@@ -40,10 +48,11 @@ export const postLogin = credentials => dispatch => {
 
 export const postLogout = () => dispatch => {
     dispatch(authRequest())
-    axios.post('https://connections-api.herokuapp.com/users/signup')
+    axios.post('https://connections-api.herokuapp.com/users/logout')
         .then(() => {
             dispatch(authSuccess())
-            dispatch()
+            token.unset()
+            dispatch(userLogout())
         })
         .catch((error) => {
             dispatch(authError(error))
@@ -52,7 +61,7 @@ export const postLogout = () => dispatch => {
 
 export const getCurrentUser = () => (dispatch, getState) => {
     dispatch(authRequest())
-    axios.post('https://connections-api.herokuapp.com/users/signup')
+    axios.get('https://connections-api.herokuapp.com/users/signup')
         .then(() => {
             dispatch(authSuccess())
             dispatch()

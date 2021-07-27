@@ -1,6 +1,6 @@
 import { configureStore, createReducer } from '@reduxjs/toolkit';
 import { addContact, deleteContact, filterContacts, getData, fetchRequest, fetchSuccess, fetchError } from './contacts/contactsActions';
-import {userRegister, userLogin, authRequest, authSuccess, authError} from './authorization/authorizationActions';
+import {userRegister, userLogin, userLogout, authRequest, authSuccess, authError} from './authorization/authorizationActions';
 
 const initialState = {
   user: null,
@@ -38,6 +38,7 @@ const reducer = createReducer(initialState, {
     user: payload.user,
     token: payload.token
   }),
+  [userLogout]: () => initialState,
   [getData]: (state, { payload }) => ({
     ...state,
     contacts: payload.data
