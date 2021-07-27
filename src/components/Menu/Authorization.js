@@ -15,22 +15,24 @@ const styles = {
 }
 
 const Authorization = () => {
-    <div>
-        <NavLink
-            to="/register" exact
-            style={styles.link}
-            activeStyle={styles.activeLink}
-        >
-            Registration
-        </NavLink>
-        <NavLink
-            to="/login" exact
-            style={styles.link}
-            activeStyle={styles.activeLink}
-        >
-            Login
-        </NavLink>
-    </div>
+    return (
+        <div>
+            <NavLink
+                to="/register" exact
+                style={styles.link}
+                activeStyle={styles.activeLink}
+            >
+                Registration
+            </NavLink>
+            <NavLink
+                to="/login" exact
+                style={styles.link}
+                activeStyle={styles.activeLink}
+            >
+                Login
+            </NavLink>
+        </div>
+    )
 }
 
 export default Authorization

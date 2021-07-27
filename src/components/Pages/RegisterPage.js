@@ -1,4 +1,6 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
+import { postRegistration } from '../../redux/authorization/authorizationActions'
 import './Page.css'
 
 class LoginPage extends Component {
@@ -14,6 +16,7 @@ class LoginPage extends Component {
     
     handleSubmit = (event) => {
         event.preventDefault()
+        this.props.onSubmit(this.state)
         this.setState({name: '', email: '', password: ''})
      }
     
@@ -62,4 +65,14 @@ class LoginPage extends Component {
     }
 }
 
-export default LoginPage
+const mapDispatchToProps = dispatch => {
+    return {
+        onSubmit: credentials => dispatch(postRegistration(credentials))
+    }
+}
+
+/*const mapDispatchToProps = {
+    onSubmit: postRegistration
+}*/
+
+export default connect(null, mapDispatchToProps)(LoginPage)

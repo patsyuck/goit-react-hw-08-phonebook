@@ -15,22 +15,24 @@ const styles = {
 }
 
 const Navigation = () => {
-    <div>
-        <NavLink
-            to="/" exact
-            style={styles.link}
-            activeStyle={styles.activeLink}
-        >
-            Home
-        </NavLink>
-        <NavLink
-            to="/contacts" exact
-            style={styles.link}
-            activeStyle={styles.activeLink}
-        >
-            Contacts
-        </NavLink>
-    </div>
+    return (
+        <div>
+            <NavLink
+                to="/" exact
+                style={styles.link}
+                activeStyle={styles.activeLink}
+            >
+                Home
+            </NavLink>
+            <NavLink
+                to="/contacts" exact
+                style={styles.link}
+                activeStyle={styles.activeLink}
+            >
+                Contacts
+            </NavLink>
+        </div>
+    )
 }
 
 export default Navigation

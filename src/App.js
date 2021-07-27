@@ -7,7 +7,7 @@ import {
   Link,
 } from 'react-router-dom';
 import { connect } from 'react-redux';
-import { getContacts, filterContacts, postContact, deleteExistContact } from './redux/actions';
+import { getContacts, filterContacts, postContact, deleteExistContact } from './redux/contacts/contactsActions';
 import { ContactForm } from './components/ContactForm/ContactForm';
 import Filter from './components/Filter/Filter';
 import ContactList from './components/ContactList/ContactList';
@@ -16,7 +16,7 @@ import Menu from './components/Menu/Menu';
 import HomePage from './components/Pages/HomePage'
 import LoginPage from './components/Pages/LoginPage'
 import RegisterPage from './components/Pages/RegisterPage'
-import {getFriends, getFilter, getFetching} from './redux/contactsSelectors'
+import {getFriends, getFilter, getFetching} from './redux/contacts/contactsSelectors'
 
 function App({ friends, filter, isFetching, handleData, handleInput, handleSubmit, handleDelete }) {
 
@@ -25,24 +25,24 @@ function App({ friends, filter, isFetching, handleData, handleInput, handleSubmi
       <h1>Phonebook</h1>
       <ContactForm
         friends={friends}
-        handlerSubmit={contact => handleSubmit(contact)}
+        handlerSubmit={handleSubmit}
         isFetching={isFetching}
       />
       <h2>Contacts</h2>
       <Filter
         filter={filter}
-        onChange={event => handleInput(event)}
+        onChange={handleInput}
       />
       <ContactList
         friends={friends}
         filter={filter}
-        onClick={id => handleDelete(id)}
-        onMount={() => handleData()}
+        onClick={handleDelete}
+        onMount={handleData}
       />
     </div>*/
     /*<div>
-      <Menu />
       <Router>
+        <Menu />
         <Suspense fallback={<MyLoader />}>
           <Switch>
             <Route path="/" exact component={HomePage} />
@@ -55,8 +55,8 @@ function App({ friends, filter, isFetching, handleData, handleInput, handleSubmi
       </Router>
     </div>*/
     <div>
-      <Menu />
       <Router>
+        <Menu />
         <Suspense fallback={<MyLoader />}>
           <Switch>
             <Route path="/" exact component={HomePage} />
