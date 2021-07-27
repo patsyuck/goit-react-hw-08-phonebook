@@ -11,7 +11,7 @@ export const fetchError = createAction('API/ERROR')
 
 export const postContact = newContact => dispatch => {
     dispatch(fetchRequest())
-    axios.post('http://localhost:3004/contacts', newContact)
+    axios.post('https://connections-api.herokuapp.com/contacts', newContact)
         .then(() => {
             dispatch(fetchSuccess())
             dispatch(addContact(newContact))
@@ -23,7 +23,7 @@ export const postContact = newContact => dispatch => {
 
 export const getContacts = () => dispatch => {
     dispatch(fetchRequest())
-    axios.get('http://localhost:3004/contacts')
+    axios.get('https://connections-api.herokuapp.com/contacts')
         .then((data) => {
             dispatch(fetchSuccess())
             dispatch(getData(data))
@@ -35,9 +35,9 @@ export const getContacts = () => dispatch => {
 
 export const deleteExistContact = id => dispatch => {
     dispatch(fetchRequest())
-    axios.delete(`http://localhost:3004/contacts/${id}`)
-        .then((data) => {
-            dispatch(fetchSuccess(data))
+    axios.delete(`https://connections-api.herokuapp.com/contacts/${id}`)
+        .then(() => {
+            dispatch(fetchSuccess())
             dispatch(deleteContact(id))
         })
         .catch((error) => {
