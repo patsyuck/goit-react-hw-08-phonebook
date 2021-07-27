@@ -59,14 +59,14 @@ export const postLogout = () => dispatch => {
         })
 }
 
-export const getCurrentUser = () => (dispatch, getState) => {
+/*export const getCurrentUser = () => (dispatch, getState) => {
     dispatch(authRequest())
     axios.get('https://connections-api.herokuapp.com/users/signup')
         .then(() => {
             dispatch(authSuccess())
-            dispatch()
+            dispatch(getUser())
         })
         .catch((error) => {
             dispatch(authError(error))
         })
-}
+}*/
