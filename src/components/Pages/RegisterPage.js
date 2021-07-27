@@ -65,14 +65,14 @@ class LoginPage extends Component {
     }
 }
 
-const mapDispatchToProps = dispatch => {
+/*const mapDispatchToProps = dispatch => {
     return {
         onSubmit: credentials => dispatch(postRegistration(credentials))
     }
-}
-
-/*const mapDispatchToProps = {
-    onSubmit: postRegistration
 }*/
+
+const mapDispatchToProps = {
+    onSubmit: postRegistration
+}
 
 export default connect(null, mapDispatchToProps)(LoginPage)

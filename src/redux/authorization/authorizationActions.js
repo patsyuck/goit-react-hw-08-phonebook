@@ -18,7 +18,7 @@ export const postRegistration = credentials => dispatch => {
     axios.post('https://connections-api.herokuapp.com/users/signup', credentials)
         .then((res) => {
             dispatch(authSuccess())
-            console.log(res.data)
+            /*console.log(res.data)*/
             dispatch(userRegister(res.data))
         })
         .catch((error) => {
@@ -28,10 +28,10 @@ export const postRegistration = credentials => dispatch => {
 
 export const postLogin = credentials => dispatch => {
     dispatch(authRequest())
-    axios.post('https://connections-api.herokuapp.com/users/signup', credentials)
-        .then(() => {
+    axios.post('https://connections-api.herokuapp.com/users/login', credentials)
+        .then((res) => {
             dispatch(authSuccess())
-            dispatch()
+            dispatch(userLogin(res.data))
         })
         .catch((error) => {
             dispatch(authError(error))
