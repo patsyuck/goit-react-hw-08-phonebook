@@ -1,5 +1,7 @@
 import React from 'react'
 import { NavLink } from 'react-router-dom'
+import { connect } from 'react-redux';
+import { getToken } from '../../redux/authorization/authorizationSelectors'
 
 const styles = {
     link: {
@@ -14,7 +16,7 @@ const styles = {
     }
 }
 
-const Navigation = () => {
+const Navigation = ({ isAuthorized }) => {
     return (
         <div>
             <NavLink
@@ -24,15 +26,23 @@ const Navigation = () => {
             >
                 Home
             </NavLink>
-            <NavLink
-                to="/contacts" exact
-                style={styles.link}
-                activeStyle={styles.activeLink}
-            >
-                Contacts
-            </NavLink>
+            {isAuthorized && (
+                <NavLink
+                    to="/contacts" exact
+                    style={styles.link}
+                    activeStyle={styles.activeLink}
+                >
+                    Contacts
+                </NavLink>
+            )}
         </div>
     )
 }
 
-export default Navigation
+const mapStateToProps = state => {
+  return {
+    isAuthorized: getToken(state)
+  };
+};
+
+export default connect(mapStateToProps, null)(Navigation)

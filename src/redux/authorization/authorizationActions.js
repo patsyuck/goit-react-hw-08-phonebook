@@ -60,12 +60,7 @@ export const postLogout = () => dispatch => {
 }
 
 export const getCurrentUser = () => (dispatch, getState) => {
-    /*console.log(getState())
-    console.log(getState().token)
-    console.log(getState().persistedReducer.token)
-    const { token: persistedToken } = getState()*/
     const persistedToken = getState().persistedReducer.token
-    /*console.log(persistedToken)*/
     if (!persistedToken) {
         return
     }
@@ -74,7 +69,6 @@ export const getCurrentUser = () => (dispatch, getState) => {
     axios.get('https://connections-api.herokuapp.com/users/current')
         .then((res) => {
             dispatch(authSuccess())
-            /*console.log(res)*/
             dispatch(getUser(res.data))
         })
         .catch((error) => {
