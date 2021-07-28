@@ -8,6 +8,7 @@ import LoginPage from './components/Pages/LoginPage'
 import RegisterPage from './components/Pages/RegisterPage'
 import ContactsPage from './components/Pages/ContactsPage'
 import {getCurrentUser} from './redux/authorization/authorizationActions'
+import PrivateRoute from './components/Menu/PrivateRoute';
 
 class App extends Component {
   componentDidMount() {
@@ -24,7 +25,7 @@ class App extends Component {
               <Route path="/" exact component={HomePage} />
               <Route path="/register" component={RegisterPage} />
               <Route path="/login" component={LoginPage} />
-              <Route path="/contacts" component={ContactsPage} />
+              <PrivateRoute path="/contacts" component={ContactsPage} />
               <Redirect to="/" />
             </Switch>
           </Suspense>
