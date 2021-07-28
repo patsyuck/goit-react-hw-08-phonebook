@@ -1,6 +1,6 @@
 import { configureStore, createReducer, /*combineReducers,*/ getDefaultMiddleware } from '@reduxjs/toolkit';
 import { addContact, deleteContact, filterContacts, getData, fetchRequest, fetchSuccess, fetchError } from './contacts/contactsActions';
-import {userRegister, userLogin, userLogout, authRequest, authSuccess, authError} from './authorization/authorizationActions';
+import {userRegister, userLogin, userLogout, getUser, authRequest, authSuccess, authError} from './authorization/authorizationActions';
 import { persistStore, persistReducer, FLUSH, REHYDRATE, PAUSE, PERSIST, PURGE, REGISTER } from 'redux-persist'
 import storage from 'redux-persist/lib/storage';
 
@@ -41,6 +41,7 @@ const reducer = createReducer(initialState, {
     token: payload.token
   }),
   [userLogout]: () => initialState,
+  [getUser]: (state, { payload }) => ({}),
   [getData]: (state, { payload }) => ({
     ...state,
     contacts: payload.data

@@ -59,14 +59,19 @@ export const postLogout = () => dispatch => {
         })
 }
 
-/*export const getCurrentUser = () => (dispatch, getState) => {
+export const getCurrentUser = () => (dispatch, getState) => {
+    const { token: persistedToken } = getState()
+    if (!persistedToken) {
+        return
+    }
+    token.set(persistedToken)
     dispatch(authRequest())
-    axios.get('https://connections-api.herokuapp.com/users/signup')
-        .then(() => {
+    axios.get('https://connections-api.herokuapp.com/users/current')
+        .then((res) => {
             dispatch(authSuccess())
-            dispatch(getUser())
+            dispatch(getUser(res.data))
         })
         .catch((error) => {
             dispatch(authError(error))
         })
-}*/
+}

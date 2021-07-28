@@ -1,4 +1,5 @@
-import React, { Suspense } from 'react';
+import React, { Component, Suspense } from 'react';
+import { connect } from 'react-redux';
 import {
   BrowserRouter as Router,
   Switch,
@@ -11,8 +12,34 @@ import HomePage from './components/Pages/HomePage'
 import LoginPage from './components/Pages/LoginPage'
 import RegisterPage from './components/Pages/RegisterPage'
 import ContactsPage from './components/Pages/ContactsPage'
+import {getCurrentUser} from './redux/authorization/authorizationActions'
 
-function App() {
+class App extends Component {
+  componentDidMount() {
+    this.props.onRefresh()
+  }
+  
+  render() {
+    return (
+      <div>
+        <Router>
+          <Menu />
+          <Suspense fallback={<MyLoader />}>
+            <Switch>
+              <Route path="/" exact component={HomePage} />
+              <Route path="/register" component={RegisterPage} />
+              <Route path="/login" component={LoginPage} />
+              <Route path="/contacts" component={ContactsPage} />
+              <Redirect to="/" />
+            </Switch>
+          </Suspense>
+        </Router>
+      </div>
+    )
+  }
+}
+
+/*function App() {
 
   return (
     <div>
@@ -30,6 +57,10 @@ function App() {
       </Router>
     </div>
   );
+}*/
+
+const mapDispatchToProps = {
+    onRefresh: getCurrentUser
 }
 
-export default App;
+export default connect(null, mapDispatchToProps)(App);
