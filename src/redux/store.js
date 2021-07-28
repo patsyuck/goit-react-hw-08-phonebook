@@ -41,7 +41,16 @@ const reducer = createReducer(initialState, {
     token: payload.token
   }),
   [userLogout]: () => initialState,
-  [getUser]: (state, { payload }) => ({}),
+  /*[userLogout]: (state) => ({
+    ...state,
+    user: null,
+    token: null,
+    authError: null
+  }),*/
+  [getUser]: (state, { payload }) => ({
+    ...state,
+    user: payload
+  }),
   [getData]: (state, { payload }) => ({
     ...state,
     contacts: payload.data

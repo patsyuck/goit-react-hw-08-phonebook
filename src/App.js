@@ -1,11 +1,6 @@
 import React, { Component, Suspense } from 'react';
 import { connect } from 'react-redux';
-import {
-  BrowserRouter as Router,
-  Switch,
-  Route,
-  Redirect
-} from 'react-router-dom';
+import {BrowserRouter as Router, Switch, Route, Redirect} from 'react-router-dom';
 import { MyLoader } from './components/Loader';
 import Menu from './components/Menu/Menu';
 import HomePage from './components/Pages/HomePage'
@@ -38,26 +33,6 @@ class App extends Component {
     )
   }
 }
-
-/*function App() {
-
-  return (
-    <div>
-      <Router>
-        <Menu />
-        <Suspense fallback={<MyLoader />}>
-          <Switch>
-            <Route path="/" exact component={HomePage} />
-            <Route path="/register" component={RegisterPage} />
-            <Route path="/login" component={LoginPage} />
-            <Route path="/contacts" component={ContactsPage} />
-            <Redirect to="/" />
-          </Switch>
-        </Suspense>
-      </Router>
-    </div>
-  );
-}*/
 
 const mapDispatchToProps = {
     onRefresh: getCurrentUser
