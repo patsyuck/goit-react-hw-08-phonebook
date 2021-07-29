@@ -1,0 +1,40 @@
+{
+  "files": {
+    "main.css": "/goit-react-hw-08-phonebook/static/css/main.8f09247e.chunk.css",
+    "main.js": "/goit-react-hw-08-phonebook/static/js/main.2c814808.chunk.js",
+    "main.js.map": "/goit-react-hw-08-phonebook/static/js/main.2c814808.chunk.js.map",
+    "runtime-main.js": "/goit-react-hw-08-phonebook/static/js/runtime-main.a0643eb6.js",
+    "runtime-main.js.map": "/goit-react-hw-08-phonebook/static/js/runtime-main.a0643eb6.js.map",
+    "static/css/2.ab75b8d7.chunk.css": "/goit-react-hw-08-phonebook/static/css/2.ab75b8d7.chunk.css",
+    "static/js/2.f64e182e.chunk.js": "/goit-react-hw-08-phonebook/static/js/2.f64e182e.chunk.js",
+    "static/js/2.f64e182e.chunk.js.map": "/goit-react-hw-08-phonebook/static/js/2.f64e182e.chunk.js.map",
+    "static/css/3.fc7fc0a3.chunk.css": "/goit-react-hw-08-phonebook/static/css/3.fc7fc0a3.chunk.css",
+    "static/js/3.6df57654.chunk.js": "/goit-react-hw-08-phonebook/static/js/3.6df57654.chunk.js",
+    "static/js/3.6df57654.chunk.js.map": "/goit-react-hw-08-phonebook/static/js/3.6df57654.chunk.js.map",
+    "static/css/4.660daed0.chunk.css": "/goit-react-hw-08-phonebook/static/css/4.660daed0.chunk.css",
+    "static/js/4.7b9fa3fe.chunk.js": "/goit-react-hw-08-phonebook/static/js/4.7b9fa3fe.chunk.js",
+    "static/js/4.7b9fa3fe.chunk.js.map": "/goit-react-hw-08-phonebook/static/js/4.7b9fa3fe.chunk.js.map",
+    "static/css/5.660daed0.chunk.css": "/goit-react-hw-08-phonebook/static/css/5.660daed0.chunk.css",
+    "static/js/5.2e67bd73.chunk.js": "/goit-react-hw-08-phonebook/static/js/5.2e67bd73.chunk.js",
+    "static/js/5.2e67bd73.chunk.js.map": "/goit-react-hw-08-phonebook/static/js/5.2e67bd73.chunk.js.map",
+    "static/css/6.660daed0.chunk.css": "/goit-react-hw-08-phonebook/static/css/6.660daed0.chunk.css",
+    "static/js/6.5eb8eedf.chunk.js": "/goit-react-hw-08-phonebook/static/js/6.5eb8eedf.chunk.js",
+    "static/js/6.5eb8eedf.chunk.js.map": "/goit-react-hw-08-phonebook/static/js/6.5eb8eedf.chunk.js.map",
+    "index.html": "/goit-react-hw-08-phonebook/index.html",
+    "static/css/2.ab75b8d7.chunk.css.map": "/goit-react-hw-08-phonebook/static/css/2.ab75b8d7.chunk.css.map",
+    "static/css/3.fc7fc0a3.chunk.css.map": "/goit-react-hw-08-phonebook/static/css/3.fc7fc0a3.chunk.css.map",
+    "static/css/4.660daed0.chunk.css.map": "/goit-react-hw-08-phonebook/static/css/4.660daed0.chunk.css.map",
+    "static/css/5.660daed0.chunk.css.map": "/goit-react-hw-08-phonebook/static/css/5.660daed0.chunk.css.map",
+    "static/css/6.660daed0.chunk.css.map": "/goit-react-hw-08-phonebook/static/css/6.660daed0.chunk.css.map",
+    "static/css/main.8f09247e.chunk.css.map": "/goit-react-hw-08-phonebook/static/css/main.8f09247e.chunk.css.map",
+    "static/js/2.f64e182e.chunk.js.LICENSE.txt": "/goit-react-hw-08-phonebook/static/js/2.f64e182e.chunk.js.LICENSE.txt",
+    "static/media/mine.e8c87480.jpg": "/goit-react-hw-08-phonebook/static/media/mine.e8c87480.jpg"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.a0643eb6.js",
+    "static/css/2.ab75b8d7.chunk.css",
+    "static/js/2.f64e182e.chunk.js",
+    "static/css/main.8f09247e.chunk.css",
+    "static/js/main.2c814808.chunk.js"
+  ]
+}
