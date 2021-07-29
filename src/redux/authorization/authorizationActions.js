@@ -19,6 +19,7 @@ export const getUser = createAction('GET_CURRENT_USER')
 export const authRequest = createAction('AUTH/REQUEST')
 export const authSuccess = createAction('AUTH/SUCCESS')
 export const authError = createAction('AUTH/ERROR')
+export const logoutError = createAction('LOGOUT/ERROR')
 
 export const postRegistration = credentials => dispatch => {
     dispatch(authRequest())
@@ -55,7 +56,7 @@ export const postLogout = () => dispatch => {
             dispatch(userLogout())
         })
         .catch((error) => {
-            dispatch(authError(error))
+            dispatch(logoutError(error))
         })
 }
 

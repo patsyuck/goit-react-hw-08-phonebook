@@ -3,7 +3,7 @@ import { connect } from 'react-redux'
 import Navigation from './Navigation'
 import UserMenu from './UserMenu'
 import Authorization from './Authorization'
-import {getToken} from '../../redux/authorization/authorizationSelectors'
+import {getAuthorization} from '../../redux/authorization/authorizationSelectors'
 import './Menu.css'
 
 const Menu = ({ isAuthorized }) => {
@@ -17,7 +17,7 @@ const Menu = ({ isAuthorized }) => {
 
 const mapStateToProps = state => {
   return {
-    isAuthorized: getToken(state)
+    isAuthorized: getAuthorization(state)
   };
 };
 

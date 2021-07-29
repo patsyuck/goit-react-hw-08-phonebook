@@ -1,12 +1,13 @@
 import { configureStore, createReducer, /*combineReducers,*/ getDefaultMiddleware } from '@reduxjs/toolkit';
 import { addContact, deleteContact, filterContacts, getData, fetchRequest, fetchSuccess, fetchError } from './contacts/contactsActions';
-import {userRegister, userLogin, userLogout, getUser, authRequest, authSuccess, authError} from './authorization/authorizationActions';
+import {userRegister, userLogin, userLogout, getUser, authRequest, authSuccess, authError, logoutError} from './authorization/authorizationActions';
 import { persistStore, persistReducer, FLUSH, REHYDRATE, PAUSE, PERSIST, PURGE, REGISTER } from 'redux-persist'
 import storage from 'redux-persist/lib/storage';
 
 const initialState = {
   user: null,
   token: null,
+  isLogin: false,
   isProcessing: false,
   authError: null,
   contacts: [],
@@ -15,41 +16,24 @@ const initialState = {
   fetchError: null
 };
 
-/*const initialState = {
-  authorization: {
-    user: '',
-    token: '',
-    error: null
-  },
-  items: {
-    contacts: [],
-    filter: '',
-    isFetching: false,
-    error: null
-  }
-};*/
-
 const reducer = createReducer(initialState, {
   [userRegister]: (state, { payload }) => ({
     ...state,
     user: payload.user,
-    token: payload.token
+    token: payload.token,
+    isLogin: true
   }),
   [userLogin]: (state, { payload }) => ({
     ...state,
     user: payload.user,
-    token: payload.token
+    token: payload.token,
+    isLogin: true
   }),
   [userLogout]: () => initialState,
-  /*[userLogout]: (state) => ({
-    ...state,
-    user: null,
-    token: null,
-    authError: null
-  }),*/
   [getUser]: (state, { payload }) => ({
     ...state,
-    user: payload
+    user: payload,
+    isLogin: true
   }),
   [getData]: (state, { payload }) => ({
     ...state,
@@ -92,6 +76,15 @@ const reducer = createReducer(initialState, {
     isProcessing: false
   }),
   [authError]: (state, { payload }) => {
+    console.log(payload.message)
+    return {
+      ...state,
+      isProcessing: false,
+      authError: payload.message,
+      isLogin: false
+    }
+  },
+  [logoutError]: (state, { payload }) => {
     console.log(payload.message)
     return {
       ...state,

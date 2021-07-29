@@ -1,7 +1,7 @@
 import React from 'react';
 import { Route, Redirect } from 'react-router-dom';
 import { connect } from 'react-redux';
-import { getToken } from '../../redux/authorization/authorizationSelectors'
+import { getAuthorization } from '../../redux/authorization/authorizationSelectors'
 
 const PrivateRoute = ({
     component: Component,
@@ -18,7 +18,7 @@ const PrivateRoute = ({
 
 const mapStateToProps = state => {
   return {
-    isAuthorized: getToken(state)
+    isAuthorized: getAuthorization(state)
   };
 };
 

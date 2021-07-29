@@ -1,6 +1,6 @@
 import React, { Component, Suspense } from 'react';
 import { connect } from 'react-redux';
-import {BrowserRouter as Router, Switch, Route, Redirect} from 'react-router-dom';
+import {BrowserRouter as Router, Switch, Redirect} from 'react-router-dom';
 import { MyLoader } from './components/Loader';
 import Menu from './components/Menu/Menu';
 import HomePage from './components/Pages/HomePage'
@@ -23,7 +23,7 @@ class App extends Component {
           <Menu />
           <Suspense fallback={<MyLoader />}>
             <Switch>
-              <Route path="/" exact component={HomePage} />
+              <PublicRoute path="/" exact component={HomePage} />
               <PublicRoute path="/register" component={RegisterPage} restricted />
               <PublicRoute path="/login" component={LoginPage} restricted />
               <PrivateRoute path="/contacts" component={ContactsPage} />
