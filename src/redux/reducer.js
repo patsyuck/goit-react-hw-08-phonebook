@@ -1,5 +1,5 @@
 import { createReducer } from '@reduxjs/toolkit';
-import { addContact, deleteContact, filterContacts, getData, fetchRequest, fetchSuccess, fetchError } from './contacts/contactsActions';
+import { addContact, updateContact, deleteContact, filterContacts, getData, fetchRequest, fetchSuccess, fetchError } from './contacts/contactsActions';
 import {userRegister, userLogin, userLogout, getUser, authRequest, authSuccess, authError, logoutError} from './authorization/authorizationActions';
 
 const initialState = {
@@ -40,7 +40,11 @@ const reducer = createReducer(initialState, {
   [addContact]: (state, { payload }) => ({
     ...state,
     contacts: [...state.contacts, payload]
-  }),
+    }),
+    [updateContact]: (state, { payload } ) => ({
+        ...state,
+        contacts: [...state.contacts.filter(item => item.id !== payload.id), payload]
+    }),
   [deleteContact]: (state, { payload }) => ({
     ...state,
     contacts: state.contacts.filter(item => item.id !== payload)

@@ -30,7 +30,20 @@ export class ContactForm extends Component {
         item => item.name.toLowerCase() === name.toLowerCase(),
       )
     ) {
-      alert(`${name} is already in contacts!`);
+      const idForUpdate = this.props.friends.find(
+        item => item.name.toLowerCase() === name.toLowerCase()
+      ).id;
+      // eslint-disable-next-line no-restricted-globals
+      let query = confirm(`${name} is already in contacts! Do you want to update the exist contact?`);
+      if (query) {
+        const contact = {
+          name: name,
+          number: number,
+        };
+        this.props.handlerUpdate(idForUpdate, contact);
+      } else {
+        alert('The contact was left unchanged.')
+      }
     } else {
       const contact = {
         id: uuid(),

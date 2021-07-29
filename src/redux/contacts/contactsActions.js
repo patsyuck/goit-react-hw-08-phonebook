@@ -2,6 +2,7 @@ import { createAction } from '@reduxjs/toolkit';
 import axios from 'axios';
 
 export const addContact = createAction('ADD_CONTACT');
+export const updateContact = createAction('UPDATE_CONTACT');
 export const deleteContact = createAction('DELETE_CONTACT');
 export const filterContacts = createAction('FILTER_CONTACTS');
 export const getData = createAction('GET_DATA')
@@ -39,6 +40,18 @@ export const deleteExistContact = id => dispatch => {
         .then(() => {
             dispatch(fetchSuccess())
             dispatch(deleteContact(id))
+        })
+        .catch((error) => {
+            dispatch(fetchError(error))
+        })
+}
+
+export const patchContact = (id, newContact) => dispatch => {
+    dispatch(fetchRequest())
+    axios.patch(`https://connections-api.herokuapp.com/contacts/${id}`, newContact)
+        .then((res) => {
+            dispatch(fetchSuccess())
+            dispatch(updateContact(res.data))
         })
         .catch((error) => {
             dispatch(fetchError(error))
